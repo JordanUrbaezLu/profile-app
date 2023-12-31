@@ -1,7 +1,7 @@
 "use client";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import SignUpCard from "@/components/signupcard";
-import DeleteAccountCard from "@/components/deletaccountcard";
+import DeleteAccountCard from "@/components/deleteaccountcard";
 
 const queryClient = new QueryClient();
 
