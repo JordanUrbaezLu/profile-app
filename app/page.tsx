@@ -1,19 +1,12 @@
 "use client";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import SignUpCard from "@/components/signupcard";
-import DeleteAccountCard from "@/components/deleteaccountcard";
-
-const queryClient = new QueryClient();
+import CreateAccountButton from "@/components/create-account-button";
 
 export default function Home() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="h-screen flex items-center justify-center">
-        <div className="p-8 shadow-md rounded flex gap-2">
-          <SignUpCard />
-          <DeleteAccountCard />
-        </div>
+    <div className="h-screen flex items-center justify-center">
+      <div className="p-8 shadow-md rounded flex gap-2">
+        <CreateAccountButton />
       </div>
-    </QueryClientProvider>
+    </div>
   );
 }

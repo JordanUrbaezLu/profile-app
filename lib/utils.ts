@@ -4,3 +4,8 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const URLS = {
+  HOME_PAGE: "/",
+  PROFILE_PAGE: "/profile",
+};
