@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { SignUp } from "@/app/types";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/app/libs/components/ui/use-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { URLS } from "@/lib/utils";

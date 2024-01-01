@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/libs/components/ui/button";
 import { useDeleteAccountMutation } from "@/app/libs/hooks/mutations/useDeleteAccountMutation";
 import { ButtonLoading } from "./ui/buttonloading";
 
 const DeleteAccountButton = () => {
-  const { isPending, mutate } = useDeleteAccountMutation();
+  const { isPending, mutate: deleteAccount } = useDeleteAccountMutation();
 
   return (
     <>
@@ -12,9 +12,7 @@ const DeleteAccountButton = () => {
       ) : (
         <Button
           onClick={() => {
-            mutate({
-              profileID: "12345",
-            });
+            deleteAccount();
           }}
         >
           Delete Account

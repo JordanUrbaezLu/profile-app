@@ -1,6 +1,6 @@
 "use client";
 
-import DeleteAccountButton from "@/components/delete-account-button";
+import DeleteAccountButton from "@/app/libs/components/delete-account-button";
 import { useGetProfileQuery } from "../libs/hooks/queries/useGetProfileQuery";
 
 const ProfilePage = () => {

@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/app/libs/database/prismadb";
 import { NextResponse } from "next/server";
 
 function getProfileID() {
@@ -11,15 +11,14 @@ function getProfileID() {
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { email, name, password, profileID } = body;
+  const { email, name, password } = body;
 
   const user = await prisma.user.create({
     data: {
       email,
       name,
       password,
-      //profileID: getProfileID(),
-      profileID,
+      profileID: getProfileID(),
     },
   });
   return NextResponse.json(user);
