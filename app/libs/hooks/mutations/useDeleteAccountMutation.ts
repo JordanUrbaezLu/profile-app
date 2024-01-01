@@ -1,14 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import { DeleteAccount } from "@/app/types";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/app/libs/components/ui/use-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { URLS } from "@/lib/utils";
 
-const deleteAccount = async (data: DeleteAccount) => {
+const deleteAccount = async () => {
   const response = await fetch("/api/delete-account", {
     method: "POST",
-    body: JSON.stringify(data),
   }).then((res) => {
     if (!res.ok) {
       throw new Error("Network response was not ok");

@@ -1,7 +1,7 @@
 "use client";
 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/app/libs/components/ui/toaster";
 
 const queryClient = new QueryClient({
   defaultOptions: {
