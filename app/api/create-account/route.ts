@@ -11,7 +11,7 @@ function getProfileID() {
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { email, name, password } = body;
+  const { email, name, password, profileID } = body;
 
   const user = await prisma.user.create({
     data: {
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       name,
       password,
       //profileID: getProfileID(),
-      profileID: "12345",
+      profileID,
     },
   });
   return NextResponse.json(user);

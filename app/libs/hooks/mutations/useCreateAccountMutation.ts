@@ -1,12 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
-import { DeleteAccount } from "@/app/types";
+import { SignUp } from "@/app/types";
 import { useToast } from "@/components/ui/use-toast";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { URLS } from "@/lib/utils";
 
-const deleteAccount = async (data: DeleteAccount) => {
-  const response = await fetch("/api/delete-account", {
+const createAccount = async (data: SignUp) => {
+  const response = await fetch("/api/create-account", {
     method: "POST",
     body: JSON.stringify(data),
   }).then((res) => {
@@ -18,25 +18,25 @@ const deleteAccount = async (data: DeleteAccount) => {
   return response;
 };
 
-export const useDeleteAccountMutation = () => {
+export const useCreateAccountMutation = () => {
   const { toast } = useToast();
   const router = useRouter();
 
   return useMutation({
-    mutationFn: deleteAccount,
+    mutationFn: createAccount,
     onSuccess: (variables) => {
       toast({
-        title: "Deleted!",
-        description: "User's account has been deleted.",
+        title: "Success!",
+        description: "New account has been created.",
       });
-      Cookies.remove("profileID", variables.profileID);
-      router.push(URLS.HOME_PAGE);
+      Cookies.set("profileID", variables.profileID);
+      router.push(URLS.PROFILE_PAGE);
     },
     onError: () => {
       toast({
         variant: "destructive",
         title: "ERROR!",
-        description: "Error ocurred while deleting account.",
+        description: "Error ocurred while creating new account.",
       });
     },
   });

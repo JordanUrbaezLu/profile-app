@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useSignUpMutation } from "@/app/libs/hooks/mutations/useSignUpMutation";
+import { useCreateAccountMutation } from "@/app/libs/hooks/mutations/useCreateAccountMutation";
 import { ButtonLoading } from "./ui/buttonloading";
 
-const SignUpCard = () => {
-  const { isPending, mutate } = useSignUpMutation();
+const CreateAccountButton = () => {
+  const { isPending, mutate } = useCreateAccountMutation();
 
   return (
     <>
@@ -11,19 +11,20 @@ const SignUpCard = () => {
         <ButtonLoading />
       ) : (
         <Button
-          onClick={() =>
+          onClick={() => {
             mutate({
               email: "jordana.urbaez1@gmail.com",
               name: "Jordan Urbaez",
               password: "Jordan123",
-            })
-          }
+              profileID: "12345",
+            });
+          }}
         >
-          Sign Up
+          Create Account
         </Button>
       )}
     </>
   );
 };
 
-export default SignUpCard;
+export default CreateAccountButton;
